@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Ventas</h2>
+{% for v in ventas %}
+    <h3>Venta #{{ v[0] }} - {{ v[1] }} - Total: ${{ v[2] }}</h3>
+    {% for x in detalle[v[0]] %}
+        <h3>{{x[0]}}: {{x[1]}} x {{x[2]}} = {{x[3]}} </h3>
+    {% endfor %}
+{% endfor %}
+{% endblock %}
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Panadería</title>
+<style>
+body { font-family: Arial; margin: 30px; background: #fffaf1; color: #333; }
+nav a { margin-right: 20px; text-decoration: none; font-weight: bold; color: #8b4513; }
+nav a:hover { text-decoration: underline; }
+table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+th, td { border: 1px solid #ccc; padding: 8px; }
+th { background: #f3e2b3; }
+input, button { padding: 5px; margin: 3px; }
+button { background: #8b4513; color: white; border: none; cursor: pointer; }
+button:hover { background: #a0522d; }
+</style>
+</head>
+<body>
+<nav>
+<a href="/">Inicio</a>
+<a href="/productos">Productos</a>
+<a href="/nueva_venta">Nueva Venta</a>
+<a href="/ventas">Ventas</a>
+<a href="/resumen_diario">Resumen Diario</a>
+</nav>
+<hr>
+{% block contenido %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Base de Datos Web</title>
+</head>
+<body>
+  <h1>Personas registradas</h1>
+  <ul>
+    {% for nombre, edad in datos %}
+      <li>{{ nombre }} ({{ edad }} años)</li>
+    {% endfor %}
+  </ul>
+
+  <form action="/agregar" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="number" name="edad" placeholder="Edad">
+    <button type="submit">Agregar</button>
+  </form>
+</body>
+</html>

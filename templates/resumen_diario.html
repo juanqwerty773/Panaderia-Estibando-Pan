@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Resumen Diario</h2>
+
+{% set ultimo_dia = None %}
+{% for v in ventas %}
+    {% set dia = v[1][:10] %}
+    
+    {% if dia != ultimo_dia %}
+        {% if ultimo_dia is not none %}
+            <!-- Mostrar resumen total del día anterior -->
+            <h4>Resumen del día {{ ultimo_dia }}:</h4>
+            <ul>
+            {% for prod, cant in resumen_diario[ultimo_dia]["productos"].items() %}
+                <li>{{ prod }}: {{ cant }}</li>
+            {% endfor %}
+            </ul>
+            <p><strong>Total del día: ${{ resumen_diario[ultimo_dia]["total_dia"] }}</strong></p>
+            <hr>
+        {% endif %}
+        
+        {% set ultimo_dia = dia %}
+    {% endif %}
+
+    {% if loop.last %}
+        </table>
+        <!-- Resumen del último día -->
+        <h4>Resumen del día {{ dia }}:</h4>
+        <ul>
+        {% for prod, cant in resumen_diario[dia]["productos"].items() %}
+            <li>{{ prod }}: {{ cant }}</li>
+        {% endfor %}
+        </ul>
+        <p><strong>Total del día: ${{ resumen_diario[dia]["total_dia"] }}</strong></p>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
+

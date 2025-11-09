@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Nueva Venta</h2>
+
+<form action="/agregar_venta" method="POST">
+<table>
+<tr><th>Producto</th><th>Precio</th><th>Stock</th><th>Cantidad</th></tr>
+{% for p in productos %}
+<tr>
+<td>{{ p[1] }}</td>
+<td>${{ p[2] }}</td>
+<td>{{ p[3] }}</td>
+<td>
+<input type="number" name="cantidad_{{ p[0] }}" value="0" min="0" max="{{ p[3] }}">
+</td>
+</tr>
+{% endfor %}
+</table>
+<button type="submit">Registrar Venta</button>
+</form>
+{% endblock %}
